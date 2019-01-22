@@ -1,9 +1,13 @@
 <!doctype html>
-<html lang="en">
+
+<html>
+
 <head>
+    <meta charset="utf-8"/>
     <title>Tutorial 1: Getting Started</title>
     <script src="node_modules/cytoscape/dist/cytoscape.min.js"></script>
 </head>
+
 <style>
     #cy {
         width: 100%;
@@ -15,22 +19,81 @@
 </style>
 
 <body>
-<div>hello dkdk kfk</div>
 <div id="cy"></div>
 <script>
     var cy = cytoscape({
         container: document.getElementById('cy'),
         elements: [
+            // nodes
             { data: { id: 'a' } },
             { data: { id: 'b' } },
+            { data: { id: 'c' } },
+            { data: { id: 'd' } },
+            { data: { id: 'e' } },
+            { data: { id: 'f' } },
+            // edges
             {
                 data: {
                     id: 'ab',
                     source: 'a',
                     target: 'b'
                 }
-            }]
+            },
+            {
+                data: {
+                    id: 'cd',
+                    source: 'c',
+                    target: 'd'
+                }
+            },
+            {
+                data: {
+                    id: 'ef',
+                    source: 'e',
+                    target: 'f'
+                }
+            },
+            {
+                data: {
+                    id: 'ac',
+                    source: 'a',
+                    target: 'c'
+                }
+            },
+            {
+                data: {
+                    id: 'be',
+                    source: 'b',
+                    target: 'e'
+                }
+            }
+        ],
+        style: [
+            {
+                selector: 'node',
+                style: {
+                    shape: 'circle',
+                    'background-color': 'red',
+                    label: 'data(id)'
+                }
+
+            },
+            // {
+            //     selector: 'edge',
+            //     style: {
+            //         'curve-style': 'bezier',
+            //         'target-arrow-shape': 'triangle',
+            //         'width': 2,
+            //         'target-arrow-color': '#1621dd',
+            //         'label': 'data(label)',
+            //         'color': '#3add35',
+            //         'edge-text-rotation': 'autorotate'
+            //     }
+            // },
+            ],
+        layout: {
+            name: 'breadthfirst'
+        }
     });
 </script>
 </body>
-</html>
